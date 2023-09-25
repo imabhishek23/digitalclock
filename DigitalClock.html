@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <title>Digital Clock</title> 
+        <style> 
+                body{
+                        padding: 0;
+                        margin: 0;
+                        box-sizing: 0;
+                        background-color: black;
+                }
+                .title{
+                        text-align: center;
+                        margin-top:130px;
+                }
+                .title1{
+                        font-family: 'Bungee', cursive;
+                        font-size: 20px;
+                        color: black;
+                        position: absolute;
+                        top: 27.5%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                }
+
+                #clock { 
+                        color: white;
+                        font-size: 175px; 
+                        width: 900px; 
+                        margin: 50px; 
+                        margin-left: 230px;
+                        text-align: center; 
+                        border: 2px solid white; 
+                        border-radius: 20px; 
+                        text-shadow: 0px 0px 20px;
+                        box-shadow: 0px 0px 20px;
+                } 
+        </style> 
+</head> 
+<body> 
+        <div class="title">
+                <img src="https://www.semrush.com/title-generator/static/images/57becdf55c40298bcc7b5002df588ea0-input_mobile.webp">
+        </div>
+        <div class="title1">
+        <h1>Digital Clock</h1>
+        </div>
+        <div id="clock">12:00:00</div> 
+        <script> 
+                setInterval(showTime, 1000); 
+                function showTime() { 
+                        var time = new Date(); 
+                        var h = time.getHours(); 
+                        var m = time.getMinutes(); 
+                        var s = time.getSeconds(); 
+                        session = "AM"; 
+                        if (h > 12) { 
+                                h = h - 12; 
+                                session = "PM"; 
+                        } 
+                        if (h == 0) { 
+                                h = 12; 
+                                session = "AM"; 
+                        }
+                        h = h < 10 ? "0" + h : h; 
+                        m = m < 10 ? "0" + m : m; 
+                        s = s < 10 ? "0" + s : s; 
+                        var currentTime = h + ":" + m + ":" + s + session; 
+                        document.getElementById("clock").innerHTML = currentTime; 
+                } 
+                showTime(); 
+        </script> 
+</body> 
+</html> 
